@@ -5,4 +5,4 @@ easybuild:
   image: eslib/esl:fedora-latest-easybuild
   stage: build
   script:
-    - eb --show-configs
+    - eb --show-config
