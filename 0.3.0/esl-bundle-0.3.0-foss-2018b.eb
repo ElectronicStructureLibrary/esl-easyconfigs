@@ -1,0 +1,19 @@
+easyblock = 'Bundle'
+
+name = 'esl-bundle'
+version = '0.3.0'
+
+homepage = 'https.//gitlab.com/ElectronicStructureLibrary/esl-bundle'
+description = """Collection of libraries and utilities broadly used in electronic structure calculations."""
+
+toolchain = {'name': 'foss', 'version': '2018b'}
+
+dependencies = [
+    ('SCOTCH', '6.0.4'),
+    ('libfdf', '0.1.1'),
+    ('libpsml', '1.1.7'),
+    ('libxc', '4.2.3'),
+    ('superlu_dist', '5.3.0'),
+]
+
+moduleclass = 'chem'
