@@ -6,3 +6,4 @@ easybuild:
   stage: build
   script:
     - eb --show-config
+    - ./scripts/eb-check-style.sh
