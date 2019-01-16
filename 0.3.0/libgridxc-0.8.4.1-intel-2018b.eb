@@ -1,0 +1,26 @@
+easyblock = 'ConfigureMake'
+
+name = 'libgridxc'
+version = '0.8.4.1'
+
+homepage = 'https://launchpad.net/libgridxc'
+description = """libgridxc is a library to compute the exchange and correlation energy and potential in spherical (i.e. an atom)
+or periodic systems. It is based on SiestaXC."""
+
+toolchain = {'name': 'intel', 'version': '2018b'}
+
+sources = ['%(name)s-%(version)s.tar.gz']
+source_urls = ['.']
+checksums = ['936590029e6113bb5658960478e2865a']
+
+configopts='--enable-multiconfig  --with-mpi=yes'
+
+builddependencies=[('libxc','4.2.3')]
+dependencies=[('libxc','4.2.3')]
+sanity_check_paths = {
+    'files': ['include/gridxc_mpi/%s.mod' % item for item in ['debugxc', 'gridxc_config', 'gridxc', 'm_atomxc', 'm_cellxc', 
+              'mesh3d','m_fft_gpfa', 'm_ggaxc', 'm_ldaxc','xcmod']] + [('lib/libgridxc_mpi.a','lib64/libgridxc_mpi.a')],
+    'dirs':[]
+}
+
+moduleclass = 'chem'
