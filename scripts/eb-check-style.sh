@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Init Lmod
+. /etc/profile.d/modules.sh
+
 # Init script return code
 chk_ret=0
 
