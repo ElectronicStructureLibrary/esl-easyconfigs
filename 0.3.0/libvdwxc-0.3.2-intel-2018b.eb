@@ -1,8 +1,12 @@
+easyblock = 'ConfigureMake'
+
 name = 'libvdwxc'
 version = '0.3.2'
 
 homepage = 'https://libvdwxc.org/'
-description = """libvdwxc is a general library for evaluating energy and potential for exchange-correlation (XC) functionals from the vdW-DF family that can be used with various of density functional theory (DFT) codes."""
+description = """libvdwxc is a general library for evaluating energy and potential for
+exchange-correlation (XC) functionals from the vdW-DF family that can be used with various
+density functional theory (DFT) codes."""
 
 toolchain = {'name': 'intel', 'version': '2018b'}
 toolchainopts = {'pic': True}
