@@ -1,7 +1,7 @@
 easyblock = 'ConfigureMake'
 
 name = 'futile'
-version = '1.8'
+version = '1.8.3'
 
 homepage = 'https://launchpad.net/futile'
 description = """
@@ -12,18 +12,17 @@ description = """
 toolchain = {'name': 'foss', 'version': '2018b'}
 
 
-sources = ['bigdft-suite-1.8.3.tar.gz']
-source_urls = ['https://launchpad.net/bigdft/%(version_major_minor)s/%(version_major_minor)s.3/+download/']
+sources = ['bigdft-suite-%(version).tar.gz']
+source_urls = ['https://launchpad.net/bigdft/%(version_major_minor)s/%(version)s/+download/']
 checksums = ['7ecb968a16e9cba35966f9f4d8acc454']
 
-cddir = ' cd futile-1.8 && '
-preconfigopts = 'tar xzf futile-1.8.tar.gz &&' + cddir
+cddir = ' cd futile-%(version_major_minor)s && '
+preconfigopts = 'tar xzf futile-%(version_major_minor)s.tar.gz &&' + cddir
 configopts = "CC=mpicc FC=mpifort  --with-scalapack=scalapack "
 configopts += "--with-blacs=scalapack --with-ext-linalg='-lopenblas' --with-mpi3 "
 prebuildopts = cddir
 preinstallopts = cddir
 
-builddependencies = [('libyaml', '0.2.1')]
 dependencies = [('libyaml', '0.2.1')]
 
 sanity_check_paths = {
