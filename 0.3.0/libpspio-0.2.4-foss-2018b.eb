@@ -14,7 +14,6 @@ checksums = ['740861617e1feb50a9e00609769b12d8']
 
 configopts = ' --enable-gsl --enable-fortran '
 
-builddependencies = [('GSL', '2.5')]
 dependencies = [('GSL', '2.5')]
 
 sanity_check_paths = {
