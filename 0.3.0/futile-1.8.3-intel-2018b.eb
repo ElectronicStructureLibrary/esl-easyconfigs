@@ -1,7 +1,7 @@
 easyblock = 'ConfigureMake'
 
 name = 'futile'
-version = '1.8'
+version = '1.8.3'
 
 homepage = 'https://launchpad.net/futile'
 description = """
@@ -12,12 +12,12 @@ description = """
 toolchain = {'name': 'intel', 'version': '2018b'}
 
 
-sources = ['bigdft-suite-1.8.3.tar.gz']
-source_urls = ['https://launchpad.net/bigdft/%(version_major_minor)s/%(version_major_minor)s.3/+download/']
+sources = ['bigdft-suite-%(version)s.tar.gz']
+source_urls = ['https://launchpad.net/bigdft/%(version_major_minor)s/%(version)s/+download/']
 checksums = ['7ecb968a16e9cba35966f9f4d8acc454']
 
-cddir = ' cd futile-1.8 && '
-preconfigopts = 'tar xzf futile-1.8.tar.gz &&' + cddir
+cddir = ' cd futile-%(version_major_minor)s && '
+preconfigopts = 'tar xzf futile-%(version_major_minor)s.tar.gz &&' + cddir
 configopts = "CC=mpiicc FC=mpiifort  --with-scalapack=-lscalapack_lp64 "
 configopts += "--with-blacs=-lblacs_intelmpi_lp64 "
 configopts += " --with-ext-linalg='-lmkl_intel_thread -lmkl_intel_lp64 -lmkl_core -liomp5' --with-mpi3 "
