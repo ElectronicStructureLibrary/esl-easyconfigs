@@ -24,7 +24,6 @@ configopts += " --with-ext-linalg='-lmkl_intel_thread -lmkl_intel_lp64 -lmkl_cor
 prebuildopts = cddir
 preinstallopts = cddir
 
-builddependencies = [('libyaml', '0.2.1')]
 dependencies = [('libyaml', '0.2.1')]
 
 sanity_check_paths = {
