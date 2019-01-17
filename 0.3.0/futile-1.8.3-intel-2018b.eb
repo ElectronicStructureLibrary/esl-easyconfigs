@@ -10,7 +10,7 @@ description = """
  """
 
 toolchain = {'name': 'intel', 'version': '2018b'}
-
+toolchainopts = {'usempi': True}
 
 sources = ['bigdft-suite-%(version)s.tar.gz']
 source_urls = ['https://launchpad.net/bigdft/%(version_major_minor)s/%(version)s/+download/']
@@ -18,9 +18,10 @@ checksums = ['7ecb968a16e9cba35966f9f4d8acc454']
 
 cddir = ' cd futile-%(version_major_minor)s && '
 preconfigopts = 'tar xzf futile-%(version_major_minor)s.tar.gz &&' + cddir
-configopts = "CC=mpiicc FC=mpiifort  --with-scalapack=-lscalapack_lp64 "
-configopts += "--with-blacs=-lblacs_intelmpi_lp64 "
-configopts += " --with-ext-linalg='-lmkl_intel_thread -lmkl_intel_lp64 -lmkl_core -liomp5' --with-mpi3 "
+configopts  = 'CC=$MPICC FC=$MPIFC '
+configopts += '--enable-mpi '
+configopts += '--with-ext-linalg="-L$SCALAPACK_LIB_DIR $LIBSCALAPACK -L$BLACS_LIB_DIR $LIBBLACS -L$LAPACK_LIB_DIR $LIBLAPACK -L$BLAS_LIB_DIR $LIBBLAS" '
+configopts += '--with-yaml-path=$EBROOTLIBYAML '
 prebuildopts = cddir
 preinstallopts = cddir
 
