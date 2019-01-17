@@ -1,0 +1,34 @@
+easyblock = 'ConfigureMake'
+
+name = 'futile'
+version = '1.8.3'
+
+homepage = 'https://launchpad.net/futile'
+description = """
+ The FUTILE project (Fortran Utilities for the Treatment of Innermost Level of Executables) is a set of modules 
+ and wrapper that encapsulate the most common low-level operations of a Fortran code.
+ """
+
+toolchain = {'name': 'foss', 'version': '2018b'}
+
+
+sources = ['bigdft-suite-%(version)s.tar.gz']
+source_urls = ['https://launchpad.net/bigdft/%(version_major_minor)s/%(version)s/+download/']
+checksums = ['7ecb968a16e9cba35966f9f4d8acc454']
+
+cddir = ' cd futile-%(version_major_minor)s && '
+preconfigopts = 'tar xzf futile-%(version_major_minor)s.tar.gz &&' + cddir
+configopts = "CC=mpicc FC=mpifort  --with-scalapack=scalapack "
+configopts += "--with-blacs=scalapack --with-ext-linalg='-lopenblas' --with-mpi3 "
+prebuildopts = cddir
+preinstallopts = cddir
+
+dependencies = [('libyaml', '0.2.1')]
+
+sanity_check_paths = {
+    'files': ['include/futile.mod', 'include/futile.h', 'bin/futilevars.sh'] +
+             [('lib/libfutile-1.a', 'lib64/libfutile-1.a')],
+    'dirs': []
+}
+
+moduleclass = 'phys'
