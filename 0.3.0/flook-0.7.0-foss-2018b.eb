@@ -1,0 +1,29 @@
+easyblock = 'MakeCp'
+
+name = 'flook'
+version = '0.7.0'
+
+homepage = 'https://github.com/zerothi/fdict'
+description = """
+  A variable and dictionary in pure fortran for retaining any data-type and a fast hash-table dictionary.
+  """
+
+toolchain = {'name': 'foss', 'version': '2018b'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/ElectronicStructureLibrary/flook/archive/']
+checksums = ['97817ce4d5a7a753d203a201f092a0ad4d046c86619ec352691fff81e4082d87']
+
+buildopts = ' lib '
+parallel = 1
+
+dependencies = [('libreadline', '7.0')]
+
+files_to_copy = [(['libfdict.a'], 'lib'), (['variable.mod', 'dictionary.mod'], 'include'), (['settings.bash'], 'bin')]
+
+sanity_check_paths = {
+    'files': ['include/dictionary.mod', 'lib/libfdict.a'],
+    'dirs': ['bin'],
+}
+
+moduleclass = 'data'
