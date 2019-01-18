@@ -9,7 +9,7 @@ exchange-correlation (XC) functionals from the vdW-DF family that can be used wi
 density functional theory (DFT) codes."""
 
 toolchain = {'name': 'intel', 'version': '2018b'}
-toolchainopts = {'pic': True}
+toolchainopts = {'pic': True, 'usempi': True}
 
 source_urls = ['https://launchpad.net/libvdwxc/stable/0.3.2/+download/']
 sources = [SOURCELOWER_TAR_GZ]
