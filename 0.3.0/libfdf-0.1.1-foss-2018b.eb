@@ -8,15 +8,19 @@ description = """LibFDF provides a Fortran API to parse files in the
  Flexible Data Format (FDF)."""
 
 toolchain = {'name': 'foss', 'version': '2018b'}
+toolchainopts = {'usempi': False}
 
 sources = [SOURCELOWER_TAR_GZ]
 source_urls = ['https://launchpad.net/libfdf/0.1/0.1.1/+download/']
 
 checksums = ['7478351716da8bb0fca9e0ffb3b04c1c44461d946897e887669fa4afee0f308c']
 
+preconfigopts = 'unset MPIFC && unset MPICC && '
+configopts = ' --without-mpi '
+
 sanity_check_paths = {
-    'files': ['include/fdf.mod', 'lib/libfdf.a'],
-    'dirs': ['include', 'lib'],
+    'files': ['include/fdf.mod', ('lib/libfdf.a', 'lib64/libfdf.a')],
+    'dirs': ['include'],
 }
 
 moduleclass = 'data'
