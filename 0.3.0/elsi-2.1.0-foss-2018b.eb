@@ -1,0 +1,34 @@
+easyblock = 'CMakeMake'
+
+name = 'elsi'
+version = '2.1.0'
+
+homepage = 'https://wordpress.elsi-interchange.org/'
+description = """
+ELSI provides and enhances scalable, open-source software library solutions 
+for electronic structure calculations in materials science, condensed matter 
+physics, chemistry, molecular biochemistry, and many other fields.  
+ELSI focuses on methods that solve or circumvent eigenvalue problems 
+in electronic structure theory. The ELSI infrastructure should 
+also be useful for other challenging eigenvalue problems. """
+
+toolchain = {'name': 'foss', 'version': '2018b'}
+toolchainopts = {'pic': True, 'usempi': True, 'openmp': False}
+
+sources = ['%(name)s-interface-v%(version)s.tar.bz2']
+source_urls = ['https://git.elsi-interchange.org/elsi-devel/elsi-interface/-/archive/v%(version)s/']
+checksums = ['a69fa07c82d6aa10d0f1d9e01f4311afb0269d8eba11e746ff6f371e7053f21d']
+
+separate_build_dir = True
+configopts = ['-DENABLE_PEXSI=ON -DUSE_EXTERNAL_ELPA=ON -DUSE_EXTERNAL_SUPERLU=ON -DUSE_EXTERNAL_NTPOLY=On',
+              '-DINC_PATHS="$EBROOTELPA/include/elpa-2018.05.001/modules;$EBROOTNTPOLY/include"']
+
+builddependencies = [('CMake', '3.12.1')]
+dependencies = [('SuperLU', '5.3.0'), ('NTPoly', '2.1'), ('ELPA', '2018.11.001')]
+sanity_check_paths = {
+    'files': ['include/elsi.h', 'include/elsi.mod'] +
+    [('lib64/libelsi.a', 'lib/libelsi.a')],
+    'dirs': []
+}
+
+moduleclass = 'math'
