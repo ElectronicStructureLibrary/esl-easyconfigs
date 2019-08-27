@@ -13,7 +13,7 @@ source_urls = ['https://portal.nersc.gov/project/sparse/superlu/']
 sources = ['superlu_dist_%(version)s.tar.gz']
 checksums = ['de40808a7916f2ef002e0c1c17d24b556b5ef7af9478541a0faacd1d318c4549']
 
-patches = ['superlu.patch']
+patches = ['patches/superlu.patch']
 
 configopts = ["-DUSE_XSDK_DEFAULTS=FALSE -Denable_blaslib=OFF" +
               " -DTPL_PARMETIS_LIBRARIES='-lptscotchparmetis -lptscotch -lscotchmetis -lscotch -lptscotcherr -lz'" +
