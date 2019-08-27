@@ -22,8 +22,8 @@ dependencies = [
 
 sanity_check_paths = {
     'files': ['include/scotch.h', 'include/ptscotch.h', 'bin/amk_fft2',
-              ('lib/libptscotch.a', 'lib64/libptscotch.a'), 
-              ('lib/libptscotchparmetis.a','lib64/libptscotchparmetis.a')],
+              ('lib/libptscotch.a', 'lib64/libptscotch.a'),
+              ('lib/libptscotchparmetis.a', 'lib64/libptscotchparmetis.a')],
     'dirs': ['man']
 }
 
