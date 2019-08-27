@@ -10,9 +10,9 @@ description = """
 
 toolchain = {'name': 'foss', 'version': '2018b'}
 
-sources = ['v%(version)s.tar.gz']
-source_urls = ['https://github.com/ElectronicStructureLibrary/flook/archive/']
-checksums = ['97817ce4d5a7a753d203a201f092a0ad4d046c86619ec352691fff81e4082d87']
+source_urls = ['https://github.com/ElectronicStructureLibrary/flook/releases/download/']
+sources = ['v%(version)s/flook-%(version)s.tar.gz']
+checksums = ['5af74cc945f0cf82f0ab6af9edf59427ac753be00112dd81dac3b8ab1cfe3d92']
 
 buildopts = ' liball '
 parallel = 1
