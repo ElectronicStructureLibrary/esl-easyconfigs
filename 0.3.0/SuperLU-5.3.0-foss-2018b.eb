@@ -17,12 +17,16 @@ checksums = [
     'b4c50fde2db6ed68f2a982d84a135462d7e1e3c949279879fe5288b4f66f6f3f',  # superlu.patch
 ]
 
+builddependencies = [('CMake', '3.12.1')]
+dependencies = [
+    ('ParMETIS', '4.0.3'),
+    ('SCOTCH', '6.0.0_esmumps')
+]
+
 configopts = ["-DUSE_XSDK_DEFAULTS=FALSE -Denable_blaslib=OFF" +
               " -DTPL_PARMETIS_LIBRARIES='-lptscotchparmetis -lptscotch -lscotchmetis -lscotch -lptscotcherr -lz'" +
               " -DTPL_PARMETIS_INCLUDE_DIRS=$EBROOTPARMETIS/include"]
 
-builddependencies = [('CMake', '3.12.1')]
-dependencies = [('ParMETIS', '4.0.3'), ('SCOTCH', '6.0.0_esmumps')]
 skipsteps = ['test']
 
 sanity_check_paths = {
