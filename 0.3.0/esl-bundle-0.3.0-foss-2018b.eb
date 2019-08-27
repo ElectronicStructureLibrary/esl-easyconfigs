@@ -9,11 +9,15 @@ description = """Collection of libraries and utilities broadly used in electroni
 toolchain = {'name': 'foss', 'version': '2018b'}
 
 dependencies = [
-    ('SCOTCH', '6.0.4'),
     ('libfdf', '0.1.1'),
     ('libpsml', '1.1.7'),
     ('libxc', '4.2.3'),
-    ('superlu_dist', '5.3.0'),
+    ('elsi', '2.1.0'),
+    ('libpspio', '0.2.4'),
+    ('futile', '1.8.3'),
+    ('libvdwxc', '0.3.2'),
+    ('libgridxc', '0.8.4.2'),
+    ('fdict', '0.6.0'),
 ]
 
 moduleclass = 'chem'
