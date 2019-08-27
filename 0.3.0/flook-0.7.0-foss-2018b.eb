@@ -16,8 +16,7 @@ checksums = ['97817ce4d5a7a753d203a201f092a0ad4d046c86619ec352691fff81e4082d87']
 
 buildopts = ' lib '
 parallel = 1
-
-dependencies = [('libreadline', '7.0')]
+#patches = ['flook-install-prefix.patch']
 
 files_to_copy = [(['libfdict.a'], 'lib'), (['variable.mod', 'dictionary.mod'], 'include'), (['settings.bash'], 'bin')]
 
