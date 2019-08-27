@@ -15,6 +15,8 @@ sources = ['bigdft-suite-%(version)s.tar.gz']
 source_urls = ['https://launchpad.net/bigdft/%(version_major_minor)s/%(version)s/+download/']
 checksums = ['7ecb968a16e9cba35966f9f4d8acc454']
 
+patches = ['patches/psolver-1.8-buildsys-mpi.patch']
+
 cddir = ' cd psolver-%(version_major_minor)s && '
 preconfigopts = 'tar xzf psolver-%(version_major_minor)s.tar.gz &&' + cddir
 configopts = 'CC=$MPICC FC=$MPIFC FCFLAGS="-I$EBROOTFUTILE/include" '
