@@ -27,7 +27,7 @@ sanity_check_paths = {
     'files':
         ['include/gridxc%s/gridxc.mod' % x for x in ['', '_mpi']] +
         [('lib/libgridxc.a', 'lib64/libgridxc.a')] +
-        [('lib/libgridxc_mpi.a', 'lib/libgridxc_mpi.a')],
+        [('lib/libgridxc_mpi.a', 'lib64/libgridxc_mpi.a')],
     'dirs': ['include'],
 }
 
