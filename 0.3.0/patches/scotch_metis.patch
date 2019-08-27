@@ -1,0 +1,11 @@
+diff -rup scotch_6.0.0_esmumps.orig/src/Makefile scotch_6.0.0_esmumps/src/Makefile
+--- scotch_6.0.0_esmumps.orig/src/Makefile	2019-08-27 14:58:14.336930948 +0100
++++ scotch_6.0.0_esmumps/src/Makefile	2019-08-27 15:00:57.782727400 +0100
+@@ -115,6 +115,7 @@ install				:	required	$(bindir)	$(includ
+ 					-$(CP) -f ../bin/[agm]*$(EXE) $(bindir)
+ 					-$(CP) -f ../bin/d[agm]*$(EXE) $(bindir)
+ 					-$(CP) -f ../include/*scotch*.h $(includedir)
++					-$(CP) -f ../include/*metis*.h $(includedir)
+ 					-$(CP) -f ../lib/*scotch*$(LIB) $(libdir)
+ 					-$(CP) -Rf ../man/* $(mandir)
+ 
