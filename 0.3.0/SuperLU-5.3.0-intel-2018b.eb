@@ -1,0 +1,37 @@
+name = 'SuperLU'
+version = '5.3.0'
+
+homepage = 'https://github.com/xiaoyeli/SuperLU'
+description = """SuperLU is a general purpose library for the 
+ direct solution of large, sparse, nonsymmetric systems
+ of linear equations on distributed high performance machines."""
+
+toolchain = {'name': 'intel', 'version': '2018b'}
+toolchainopts = {'pic': True, 'usempi': True}
+
+source_urls = ['https://portal.nersc.gov/project/sparse/superlu/']
+sources = ['superlu_dist_%(version)s.tar.gz']
+patches = ['patches/superlu.patch']
+checksums = [
+    'de40808a7916f2ef002e0c1c17d24b556b5ef7af9478541a0faacd1d318c4549',  # superlu_dist_5.3.0.tar.gz
+    'b4c50fde2db6ed68f2a982d84a135462d7e1e3c949279879fe5288b4f66f6f3f',  # superlu.patch
+]
+
+builddependencies = [('CMake', '3.12.1')]
+dependencies = [
+    ('ParMETIS', '4.0.3'),
+    ('SCOTCH', '6.0.0_esmumps')
+]
+
+configopts = ["-DUSE_XSDK_DEFAULTS=FALSE -Denable_blaslib=OFF" +
+              " -DTPL_PARMETIS_LIBRARIES='-lptscotchparmetis -lptscotch -lscotchmetis -lscotch -lptscotcherr -lz'" +
+              " -DTPL_PARMETIS_INCLUDE_DIRS=$EBROOTPARMETIS/include"]
+
+skipsteps = ['test']
+
+sanity_check_paths = {
+    'files': ['include/superlu_defs.h', ('lib/libsuperlu_dist.a', 'lib64/libsuperlu_dist.a')],
+    'dirs': []
+}
+
+moduleclass = 'numlib'
