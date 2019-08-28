@@ -1,0 +1,25 @@
+easyblock = 'Bundle'
+
+name = 'esl-bundle'
+version = '0.3.0'
+
+homepage = 'https.//gitlab.com/ElectronicStructureLibrary/esl-bundle'
+description = """Collection of libraries and utilities broadly used in electronic structure calculations."""
+
+toolchain = {'name': 'intel', 'version': '2018b'}
+
+dependencies = [
+    ('ELSI', '2.1.0'),
+    ('fdict', '0.6.0'),
+    ('flook', '0.7.0'),
+    ('futile', '1.8.3'),
+    ('libfdf', '0.1.1'),
+    ('libgridxc', '0.8.4.2'),
+    ('libpsml', '1.1.7'),
+    ('libpspio', '0.2.4'),
+    ('libxc', '4.2.3'),
+    ('libvdwxc', '0.3.2'),
+    ('PSolver', '1.8.3'),
+]
+
+moduleclass = 'phys'
