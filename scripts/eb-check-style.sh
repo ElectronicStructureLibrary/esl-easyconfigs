@@ -8,7 +8,7 @@ chk_ret=0
 
 # Check the style of all EasyConfigs
 chk_style_fails=""
-for eb_src in [0-9].[0-9].[0-9]/*; do
+for eb_src in easyconfigs/*/*/*.eb; do
   echo "EasyBuild - Checking style of ${eb_src}"
   eb --check-style "${eb_src}"
   eb_ret="${?}"
