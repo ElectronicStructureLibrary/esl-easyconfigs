@@ -9,7 +9,7 @@ description = """Collection of libraries and utilities broadly used in electroni
 toolchain = {'name': 'foss', 'version': '2018b'}
 
 dependencies = [
-    ('elsi', '2.1.0'),
+    ('ELSI', '2.1.0'),
     ('fdict', '0.6.0'),
     ('flook', '0.7.0'),
     ('futile', '1.8.3'),
