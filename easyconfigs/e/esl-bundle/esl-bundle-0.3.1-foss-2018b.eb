@@ -1,12 +1,12 @@
 easyblock = 'Bundle'
 
 name = 'esl-bundle'
-version = '0.3.0'
+version = '0.3.1'
 
 homepage = 'https.//gitlab.com/ElectronicStructureLibrary/esl-bundle'
 description = """Collection of libraries and utilities broadly used in electronic structure calculations."""
 
-toolchain = {'name': 'intel', 'version': '2018b'}
+toolchain = {'name': 'foss', 'version': '2018b'}
 
 dependencies = [
     ('ELSI', '2.1.0'),
