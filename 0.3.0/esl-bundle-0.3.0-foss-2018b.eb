@@ -22,4 +22,4 @@ dependencies = [
     ('PSolver', '1.8.3'),
 ]
 
-moduleclass = 'chem'
+moduleclass = 'phys'
