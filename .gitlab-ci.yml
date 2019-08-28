@@ -2,7 +2,7 @@ stages:
   - build
 
 easybuild:
-  image: eslib/esl:fedora-latest-easybuild
+  image: eslib/esl:eb-v3.9.4
   stage: build
   script:
     - eb --show-config
