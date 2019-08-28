@@ -1,0 +1,34 @@
+easyblock = 'ConfigureMake'
+
+name = 'libgridxc'
+version = '0.8.4.2'
+
+homepage = 'https://gitlab.com/pouillon/libgridxc'
+description = """A library to compute the exchange and correlation energy
+ and potential in spherical (i.e. atoms) or periodic systems."""
+
+toolchain = {'name': 'foss', 'version': '2019a'}
+toolchainopts = {'usempi': True, 'opt': True}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = ['https://poupouille.org/siesta-pro/downloads/']
+checksums = ['a59f8aea9a49f2d6852a10c6e6a8d41c65d00c2d543e0bc541ad76e171362a26']
+
+common_configopts = "--enable-static --enable-shared --enable-multiconfig --with-libxc"
+
+configopts = [
+    common_configopts + " --without-mpi",
+    common_configopts + " CC=$MPICC FC=$MPIFC CXX=$MPICXX --with-mpi",
+]
+
+dependencies = [('libxc', '4.2.3')]
+
+sanity_check_paths = {
+    'files':
+        ['include/gridxc%s/gridxc.mod' % x for x in ['', '_mpi']] +
+        [('lib/libgridxc.a', 'lib64/libgridxc.a')] +
+        [('lib/libgridxc_mpi.a', 'lib64/libgridxc_mpi.a')],
+    'dirs': ['include'],
+}
+
+moduleclass = 'phys'
