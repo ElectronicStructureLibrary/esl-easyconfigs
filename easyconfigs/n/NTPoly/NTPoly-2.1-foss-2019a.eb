@@ -16,7 +16,7 @@ checksums = ['6dd658ce61a65d839f3e41f166840341']
 
 configopts = ['-DBUILD_SHARED_LIBS=on']
 
-builddependencies = [('CMake', '3.12.1')]
+builddependencies = [('CMake', '3.13.3')]
 
 sanity_check_paths = {
     'files': ['include/%s.mod' % item for item in ['datatypesmodule', 'densitymatrixsolversmodule']] +

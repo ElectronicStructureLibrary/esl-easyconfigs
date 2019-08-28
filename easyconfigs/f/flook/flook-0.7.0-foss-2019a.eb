@@ -14,7 +14,7 @@ source_urls = ['https://github.com/ElectronicStructureLibrary/flook/releases/dow
 sources = ['v%(version)s/flook-%(version)s.tar.gz']
 checksums = ['5af74cc945f0cf82f0ab6af9edf59427ac753be00112dd81dac3b8ab1cfe3d92']
 
-dependencies = [('libreadline', '7.0')]
+dependencies = [('libreadline', '8.0')]
 
 buildopts = ' liball '
 parallel = 1

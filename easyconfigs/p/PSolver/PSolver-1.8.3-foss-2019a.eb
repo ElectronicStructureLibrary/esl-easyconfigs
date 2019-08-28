@@ -25,7 +25,7 @@ prebuildopts = cddir
 preinstallopts = cddir
 
 dependencies = [
-    ('libyaml', '0.2.1'),
+    ('libyaml', '0.2.2'),
     ('futile', '1.8.3')
 ]
 
