@@ -9,7 +9,7 @@ homepage = 'http://elpa.rzg.mpg.de'
 description = """Eigenvalue SoLvers for Petaflop-Applications ."""
 
 toolchain = {'name': 'intel', 'version': '2018b'}
-toolchainopts = {'usempi': True, 'opt': False}
+toolchainopts = {'usempi': True, 'opt': False, 'openmp': True}
 
 source_urls = ['http://elpa.mpcdf.mpg.de/html/Releases/%(version)s/']
 sources = [SOURCELOWER_TAR_GZ]
