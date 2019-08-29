@@ -1,0 +1,25 @@
+easyblock = 'MakeCp'
+
+name = 'fdict'
+version = '0.6.0'
+
+homepage = 'https://github.com/zerothi/fdict'
+description = """
+  A variable and dictionary in pure fortran for retaining any data-type and a fast hash-table dictionary.
+  """
+
+toolchain = {'name': 'intel', 'version': '2019a'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/zerothi/fdict/archive/']
+checksums = ['3138c3a3b78e9d96898619c4aba61437a2f0d498e70fa7d4e66716fd25408f04']
+
+
+files_to_copy = [(['libfdict.a'], 'lib'), (['variable.mod', 'dictionary.mod'], 'include'), (['settings.bash'], 'bin')]
+
+sanity_check_paths = {
+    'files': ['include/dictionary.mod', 'lib/libfdict.a'],
+    'dirs': ['bin'],
+}
+
+moduleclass = 'data'

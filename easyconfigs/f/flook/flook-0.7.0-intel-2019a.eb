@@ -1,0 +1,29 @@
+easyblock = 'MakeCp'
+
+name = 'flook'
+version = '0.7.0'
+
+homepage = 'https://github.com/ElectronicStructureLibrary/flook'
+description = """
+  The fortran-Lua-hook library.
+  """
+
+toolchain = {'name': 'intel', 'version': '2019a'}
+
+source_urls = ['https://github.com/ElectronicStructureLibrary/flook/releases/download/']
+sources = ['v%(version)s/flook-%(version)s.tar.gz']
+checksums = ['5af74cc945f0cf82f0ab6af9edf59427ac753be00112dd81dac3b8ab1cfe3d92']
+
+dependencies = [('libreadline', '8.0')]
+
+buildopts = ' liball '
+parallel = 1
+
+files_to_copy = [(['libflookall.a', 'libflook.a'], 'lib'), (['flook.mod'], 'include')]
+
+sanity_check_paths = {
+    'files': ['include/flook.mod', 'lib/libflook.a', 'lib/libflookall.a'],
+    'dirs': [],
+}
+
+moduleclass = 'data'

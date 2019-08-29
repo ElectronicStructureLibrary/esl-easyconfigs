@@ -1,0 +1,32 @@
+name = 'SCOTCH'
+version = '6.0.0_esmumps'
+
+homepage = 'http://gforge.inria.fr/projects/scotch/'
+description = """
+  Software package and libraries for sequential and parallel graph partitioning,
+  static mapping, and sparse matrix block ordering, and sequential mesh and hypergraph partitioning.
+  """
+
+toolchain = {'name': 'intel', 'version': '2019a'}
+toolchainopts = {'pic': True, 'usempi': True}
+
+source_urls = ['https://gforge.inria.fr/frs/download.php/31832/']
+sources = ['%(namelower)s_%(version)s.tar.gz']
+patches = ['metis.patch']
+checksums = [
+    '8206127d038bda868dda5c5a7f60ef8224f2e368298fbb01bf13fa250e378dd4',  # scotch_6.0.0_esmumps.tar.gz
+    '835f65e3b4fec342fe93c2ef73e65cfc46abd4c3f016f12bc68ea3ff2cb1a6c8',  # metis.patch
+]
+
+dependencies = [
+    ('zlib', '1.2.11'),
+]
+
+sanity_check_paths = {
+    'files': ['include/scotch.h', 'include/ptscotch.h', 'bin/amk_fft2',
+              ('lib/libptscotch.a', 'lib64/libptscotch.a'),
+              ('lib/libptscotchparmetis.a', 'lib64/libptscotchparmetis.a')],
+    'dirs': ['man']
+}
+
+moduleclass = 'math'
