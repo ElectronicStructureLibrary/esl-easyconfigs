@@ -1,5 +1,7 @@
 name = 'SuperLU'
 version = '5.3.0'
+scotch_ver = '6.0.0_esmumps'
+versionsuffix = '-SCOTCH-%s' % scotch_ver
 
 homepage = 'https://github.com/xiaoyeli/SuperLU'
 description = """SuperLU is a general purpose library for the 
@@ -19,7 +21,7 @@ checksums = [
 
 builddependencies = [('CMake', '3.13.3')]
 dependencies = [
-    ('SCOTCH', '6.0.0_esmumps')
+    ('SCOTCH', scotch_ver)
 ]
 
 configopts = ["-DUSE_XSDK_DEFAULTS=FALSE -Denable_blaslib=OFF" +
