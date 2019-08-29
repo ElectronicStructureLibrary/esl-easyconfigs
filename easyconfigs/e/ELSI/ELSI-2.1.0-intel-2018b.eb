@@ -24,7 +24,7 @@ builddependencies = [('CMake', '3.12.1')]
 elpaver = '2018.11.001'
 
 dependencies = [
-    ('SuperLU', '5.3.0'),
+    ('SuperLU', '5.3.0','-SCOTCH-6.0.0_esmumps'),
     ('NTPoly', '2.1'),
     ('ELPA', elpaver)
 ]
