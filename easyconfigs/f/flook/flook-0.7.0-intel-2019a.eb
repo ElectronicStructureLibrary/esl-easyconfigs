@@ -16,7 +16,7 @@ checksums = ['5af74cc945f0cf82f0ab6af9edf59427ac753be00112dd81dac3b8ab1cfe3d92']
 
 dependencies = [('libreadline', '8.0')]
 
-buildopts = ' liball '
+buildopts = ' liball VENDOR=intel CC=icc '
 parallel = 1
 
 files_to_copy = [(['libflookall.a', 'libflook.a'], 'lib'), (['flook.mod'], 'include')]
