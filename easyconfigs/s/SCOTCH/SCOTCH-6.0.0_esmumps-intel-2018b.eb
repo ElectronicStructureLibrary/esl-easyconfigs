@@ -12,7 +12,11 @@ toolchainopts = {'pic': True, 'usempi': True}
 
 source_urls = ['https://gforge.inria.fr/frs/download.php/31832/']
 sources = ['%(namelower)s_%(version)s.tar.gz']
-checksums = ['c50d6187462ba801f9a82133ee666e8e']
+patches = ['metis.patch']
+checksums = [
+    '8206127d038bda868dda5c5a7f60ef8224f2e368298fbb01bf13fa250e378dd4',  # scotch_6.0.0_esmumps.tar.gz
+    '835f65e3b4fec342fe93c2ef73e65cfc46abd4c3f016f12bc68ea3ff2cb1a6c8',  # metis.patch
+]
 
 dependencies = [
     ('zlib', '1.2.11'),
