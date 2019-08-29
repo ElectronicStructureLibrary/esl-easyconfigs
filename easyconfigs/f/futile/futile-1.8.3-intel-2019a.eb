@@ -20,8 +20,8 @@ checksums = [
     '9efc3f94cdb6131b00715afcdeb16c7ed016b8fc69a2c95f4449088bf79f84ba',  # futile_intel_bug.patch
 ]
 
-unpack_options = " spred-suite/futile-%(version_major_minor)s.tar.gz --strip 1 "
-unpack_options += "&& tar xzf futile-%(version_major_minor)s.tar.gz --transform='s,%(version_major_minor)s,%(version)s,'"
+unpack_options = " spred-suite/futile-%(version_major_minor)s.tar.gz --strip 1 && "
+unpack_options += "tar xzf futile-%(version_major_minor)s.tar.gz --transform='s,%(version_major_minor)s,%(version)s,'"
 start_dir = "futile-%(version)s"
 
 configopts = 'CC=$MPICC FC=$MPIFC '
