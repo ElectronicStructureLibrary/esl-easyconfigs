@@ -1,0 +1,376 @@
+diff -rNup scotch_6.0.0_esmumps.orig/src/libscotchmetis/Makefile scotch_6.0.0_esmumps/src/libscotchmetis/Makefile
+--- scotch_6.0.0_esmumps.orig/src/libscotchmetis/Makefile	2019-08-29 09:56:33.394462289 +0100
++++ scotch_6.0.0_esmumps/src/libscotchmetis/Makefile	2019-08-29 10:23:57.671538391 +0100
+@@ -61,11 +61,11 @@ ptscotch			:
+ 					libptscotchparmetis$(LIB)
+ 
+ install				:	scotch
+-					-$(CP) metis.h $(includedir)
++					-$(CP) scotchmetis.h $(includedir)
+ 					-$(CP) libscotchmetis$(LIB) $(libdir)
+ 
+ ptinstall			:	ptscotch
+-					-$(CP) parmetis.h $(includedir)
++					-$(CP) scotchparmetis.h $(includedir)
+ 					-$(CP) libptscotchparmetis$(LIB) $(libdir)
+ 
+ clean				:
+@@ -81,49 +81,49 @@ metis_graph_order$(OBJ)		:	metis_graph_o
+ 					../libscotch/module.h			\
+ 					../libscotch/common.h			\
+ 					$(includedir)/scotch.h			\
+-					metis.h
++					scotchmetis.h
+ 
+ metis_graph_order_f$(OBJ)	:	metis_graph_order_f.c			\
+ 					../libscotch/module.h			\
+ 					../libscotch/common.h			\
+ 					$(includedir)/scotch.h			\
+-					metis.h
++					scotchmetis.h
+ 
+ metis_graph_part$(OBJ)		:	metis_graph_part.c			\
+ 					../libscotch/module.h			\
+ 					../libscotch/common.h			\
+ 					$(includedir)/scotch.h			\
+-					metis.h
++					scotchmetis.h
+ 
+ metis_graph_part_f$(OBJ)	:	metis_graph_part_f.c			\
+ 					../libscotch/module.h			\
+ 					../libscotch/common.h			\
+ 					$(includedir)/scotch.h			\
+-					metis.h
++					scotchmetis.h
+ 
+ parmetis_dgraph_order$(OBJ)	:	parmetis_dgraph_order.c			\
+ 					../libscotch/module.h			\
+ 					../libscotch/common.h			\
+ 					$(includedir)/ptscotch.h		\
+-					parmetis.h
++					scotchparmetis.h
+ 
+ parmetis_dgraph_order_f$(OBJ)	:	parmetis_dgraph_order_f.c		\
+ 					../libscotch/module.h			\
+ 					../libscotch/common.h			\
+ 					$(includedir)/ptscotch.h		\
+-					parmetis.h
++					scotchparmetis.h
+ 
+ parmetis_dgraph_part$(OBJ)	:	parmetis_dgraph_part.c			\
+ 					../libscotch/module.h			\
+ 					../libscotch/common.h			\
+ 					$(includedir)/ptscotch.h		\
+-					parmetis.h
++					scotchparmetis.h
+ 
+ parmetis_dgraph_part_f$(OBJ)	:	parmetis_dgraph_part_f.c		\
+ 					../libscotch/module.h			\
+ 					../libscotch/common.h			\
+ 					$(includedir)/ptscotch.h		\
+-					parmetis.h
++					scotchparmetis.h
+ 
+ libptscotchparmetis$(LIB)	:	parmetis_dgraph_order$(OBJ)		\
+ 					parmetis_dgraph_order_f$(OBJ)		\
+diff -rNup scotch_6.0.0_esmumps.orig/src/libscotchmetis/metis_graph_order.c scotch_6.0.0_esmumps/src/libscotchmetis/metis_graph_order.c
+--- scotch_6.0.0_esmumps.orig/src/libscotchmetis/metis_graph_order.c	2019-08-29 09:56:33.394462289 +0100
++++ scotch_6.0.0_esmumps/src/libscotchmetis/metis_graph_order.c	2019-08-29 10:15:29.762264820 +0100
+@@ -57,7 +57,7 @@
+ #include "module.h"
+ #include "common.h"
+ #include "scotch.h"
+-#include "metis.h"                                /* Our "metis.h" file */
++#include "scotchmetis.h"                                /* Our "metis.h" file */
+ 
+ /************************************/
+ /*                                  */
+diff -rNup scotch_6.0.0_esmumps.orig/src/libscotchmetis/metis_graph_order_f.c scotch_6.0.0_esmumps/src/libscotchmetis/metis_graph_order_f.c
+--- scotch_6.0.0_esmumps.orig/src/libscotchmetis/metis_graph_order_f.c	2019-08-29 09:56:33.394462289 +0100
++++ scotch_6.0.0_esmumps/src/libscotchmetis/metis_graph_order_f.c	2019-08-29 10:21:14.885848204 +0100
+@@ -56,7 +56,7 @@
+ 
+ #include "common.h"
+ #include "scotch.h"
+-#include "metis.h"                                /* Our "metis.h" file */
++#include "scotchmetis.h"                                /* Our "metis.h" file */
+ 
+ /**************************************/
+ /*                                    */
+diff -rNup scotch_6.0.0_esmumps.orig/src/libscotchmetis/metis_graph_part.c scotch_6.0.0_esmumps/src/libscotchmetis/metis_graph_part.c
+--- scotch_6.0.0_esmumps.orig/src/libscotchmetis/metis_graph_part.c	2019-08-29 09:56:33.394462289 +0100
++++ scotch_6.0.0_esmumps/src/libscotchmetis/metis_graph_part.c	2019-08-29 10:15:43.974412383 +0100
+@@ -57,7 +57,7 @@
+ #include "module.h"
+ #include "common.h"
+ #include "scotch.h"
+-#include "metis.h"                                /* Our "metis.h" file */
++#include "scotchmetis.h"                                /* Our "metis.h" file */
+ 
+ /************************************/
+ /*                                  */
+diff -rNup scotch_6.0.0_esmumps.orig/src/libscotchmetis/metis_graph_part_f.c scotch_6.0.0_esmumps/src/libscotchmetis/metis_graph_part_f.c
+--- scotch_6.0.0_esmumps.orig/src/libscotchmetis/metis_graph_part_f.c	2019-08-29 09:56:33.394462289 +0100
++++ scotch_6.0.0_esmumps/src/libscotchmetis/metis_graph_part_f.c	2019-08-29 10:21:44.574156453 +0100
+@@ -56,7 +56,7 @@
+ 
+ #include "common.h"
+ #include "scotch.h"
+-#include "metis.h"                                /* Our "metis.h" file */
++#include "scotchmetis.h"                                /* Our "metis.h" file */
+ 
+ /**************************************/
+ /*                                    */
+diff -rNup scotch_6.0.0_esmumps.orig/src/libscotchmetis/parmetis_dgraph_order.c scotch_6.0.0_esmumps/src/libscotchmetis/parmetis_dgraph_order.c
+--- scotch_6.0.0_esmumps.orig/src/libscotchmetis/parmetis_dgraph_order.c	2019-08-29 09:56:33.394462289 +0100
++++ scotch_6.0.0_esmumps/src/libscotchmetis/parmetis_dgraph_order.c	2019-08-29 10:20:35.533439612 +0100
+@@ -57,7 +57,7 @@
+ #include "module.h"
+ #include "common.h"
+ #include "ptscotch.h"
+-#include "parmetis.h"                             /* Our "parmetis.h" file */
++#include "scotchparmetis.h"                             /* Our "parmetis.h" file */
+ 
+ /************************************/
+ /*                                  */
+diff -rNup scotch_6.0.0_esmumps.orig/src/libscotchmetis/parmetis_dgraph_order_f.c scotch_6.0.0_esmumps/src/libscotchmetis/parmetis_dgraph_order_f.c
+--- scotch_6.0.0_esmumps.orig/src/libscotchmetis/parmetis_dgraph_order_f.c	2019-08-29 09:56:33.394462289 +0100
++++ scotch_6.0.0_esmumps/src/libscotchmetis/parmetis_dgraph_order_f.c	2019-08-29 10:23:03.902980117 +0100
+@@ -56,7 +56,7 @@
+ 
+ #include "common.h"
+ #include "ptscotch.h"
+-#include "parmetis.h"                             /* Our "parmetis.h" file */
++#include "scotchparmetis.h"                             /* Our "parmetis.h" file */
+ 
+ /**************************************/
+ /*                                    */
+diff -rNup scotch_6.0.0_esmumps.orig/src/libscotchmetis/parmetis_dgraph_part.c scotch_6.0.0_esmumps/src/libscotchmetis/parmetis_dgraph_part.c
+--- scotch_6.0.0_esmumps.orig/src/libscotchmetis/parmetis_dgraph_part.c	2019-08-29 09:56:33.394462289 +0100
++++ scotch_6.0.0_esmumps/src/libscotchmetis/parmetis_dgraph_part.c	2019-08-29 10:15:03.885996151 +0100
+@@ -55,7 +55,7 @@
+ #include "module.h"
+ #include "common.h"
+ #include "ptscotch.h"
+-#include "parmetis.h"                             /* Our "parmetis.h" file */
++#include "scotchparmetis.h"                             /* Our "parmetis.h" file */
+ 
+ /************************************/
+ /*                                  */
+diff -rNup scotch_6.0.0_esmumps.orig/src/libscotchmetis/parmetis_dgraph_part_f.c scotch_6.0.0_esmumps/src/libscotchmetis/parmetis_dgraph_part_f.c
+--- scotch_6.0.0_esmumps.orig/src/libscotchmetis/parmetis_dgraph_part_f.c	2019-08-29 09:56:33.394462289 +0100
++++ scotch_6.0.0_esmumps/src/libscotchmetis/parmetis_dgraph_part_f.c	2019-08-29 10:16:20.830795059 +0100
+@@ -54,7 +54,7 @@
+ 
+ #include "common.h"
+ #include "ptscotch.h"
+-#include "parmetis.h"                             /* Our "parmetis.h" file */
++#include "scotchparmetis.h"                             /* Our "parmetis.h" file */
+ 
+ /**************************************/
+ /*                                    */
+diff -rNup scotch_6.0.0_esmumps.orig/src/libscotchmetis/scotchmetis.h scotch_6.0.0_esmumps/src/libscotchmetis/scotchmetis.h
+--- scotch_6.0.0_esmumps.orig/src/libscotchmetis/scotchmetis.h	1970-01-01 01:00:00.000000000 +0100
++++ scotch_6.0.0_esmumps/src/libscotchmetis/scotchmetis.h	2019-08-29 10:28:10.626164791 +0100
+@@ -0,0 +1,97 @@
++/*********************************************************
++**                                                      **
++**  WARNING: THIS IS NOT THE ORIGINAL INCLUDE FILE OF   **
++**  THE MeTiS SOFTWARE PACKAGE.                         **
++**  This file is a compatibility include file provided  **
++**  as part of the Scotch software distribution.        **
++**  Preferably use the original MeTiS include file to   **
++**  keep definitions of routines not overloaded by      **
++**  the libScotchMeTiS library.                         **
++**                                                      **
++*********************************************************/
++/* Copyright 2007,2010,2012 IPB, Universite de Bordeaux, INRIA & CNRS
++**
++** This file is part of the Scotch software package for static mapping,
++** graph partitioning and sparse matrix ordering.
++**
++** This software is governed by the CeCILL-C license under French law
++** and abiding by the rules of distribution of free software. You can
++** use, modify and/or redistribute the software under the terms of the
++** CeCILL-C license as circulated by CEA, CNRS and INRIA at the following
++** URL: "http://www.cecill.info".
++** 
++** As a counterpart to the access to the source code and rights to copy,
++** modify and redistribute granted by the license, users are provided
++** only with a limited warranty and the software's author, the holder of
++** the economic rights, and the successive licensors have only limited
++** liability.
++** 
++** In this respect, the user's attention is drawn to the risks associated
++** with loading, using, modifying and/or developing or reproducing the
++** software by the user in light of its specific status of free software,
++** that may mean that it is complicated to manipulate, and that also
++** therefore means that it is reserved for developers and experienced
++** professionals having in-depth computer knowledge. Users are therefore
++** encouraged to load and test the software's suitability as regards
++** their requirements in conditions enabling the security of their
++** systems and/or data to be ensured and, more generally, to use and
++** operate it in the same conditions as regards security.
++** 
++** The fact that you are presently reading this means that you have had
++** knowledge of the CeCILL-C license and that you accept its terms.
++*/
++/************************************************************/
++/**                                                        **/
++/**   NAME       : metis.h                                 **/
++/**                                                        **/
++/**   AUTHOR     : Francois PELLEGRINI                     **/
++/**                                                        **/
++/**   FUNCTION   : Compatibility declaration file for the  **/
++/**                MeTiS interface routines provided by    **/
++/**                the Scotch project.                     **/
++/**                                                        **/
++/**   DATES      : # Version 5.0  : from : 08 sep 2006     **/
++/**                                 to     07 jun 2007     **/
++/**                # Version 5.1  : from : 30 jun 2010     **/
++/**                                 to     30 jun 2010     **/
++/**                # Version 6.0  : from : 13 sep 2012     **/
++/**                                 to     13 sep 2012     **/
++/**                                                        **/
++/************************************************************/
++
++/*
++**  The defines.
++*/
++
++#ifdef SCOTCH_METIS_PREFIX
++#define SCOTCH_METIS_PREFIXL        scotch_
++#define SCOTCH_METIS_PREFIXU        SCOTCH_
++#endif /* SCOTCH_METIS_PREFIX */
++
++#ifndef SCOTCH_METIS_PREFIXL
++#define SCOTCH_METIS_PREFIXL
++#endif /* SCOTCH_METIS_PREFIXL */
++
++#ifndef SCOTCH_METIS_PREFIXU
++#define SCOTCH_METIS_PREFIXU
++#endif /* SCOTCH_METIS_PREFIXU */
++
++#ifndef METISNAMEL
++#define METISNAMEL(s)               METISNAME2(METISNAME3(SCOTCH_METIS_PREFIXL),s)
++#define METISNAMEU(s)               METISNAME2(METISNAME3(SCOTCH_METIS_PREFIXU),s)
++#define METISNAME2(p,s)             METISNAME4(p,s)
++#define METISNAME3(s)               s
++#define METISNAME4(p,s)             p##s
++#endif /* METISNAMEL */
++
++/*
++**  The function prototypes.
++*/
++
++void                        METISNAMEU(METIS_EdgeND) (const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const);
++void                        METISNAMEU(METIS_NodeND) (const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const);
++void                        METISNAMEU(METIS_NodeWND) (const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const);
++
++void                        METISNAMEU(METIS_PartGraphKway) (const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const);
++void                        METISNAMEU(METIS_PartGraphRecursive) (const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const);
++void                        METISNAMEU(METIS_PartGraphVKway) (const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const);
+diff -rNup scotch_6.0.0_esmumps.orig/src/libscotchmetis/scotchparmetis.h scotch_6.0.0_esmumps/src/libscotchmetis/scotchparmetis.h
+--- scotch_6.0.0_esmumps.orig/src/libscotchmetis/scotchparmetis.h	1970-01-01 01:00:00.000000000 +0100
++++ scotch_6.0.0_esmumps/src/libscotchmetis/scotchparmetis.h	2019-08-29 10:28:25.614320411 +0100
+@@ -0,0 +1,100 @@
++/*********************************************************
++**                                                      **
++**  WARNING: THIS IS NOT THE ORIGINAL INCLUDE FILE OF   **
++**  THE ParMeTiS SOFTWARE PACKAGE.                      **
++**  This file is a compatibility include file provided  **
++**  as part of the Scotch software distribution.        **
++**  Preferably use the original ParMeTiS include file   **
++**  to keep definitions of routines not overloaded by   **
++**  the libPTScotchMeTiS library.                       **
++**                                                      **
++*********************************************************/
++/* Copyright 2007,2008,2010,2012 IPB, Universite de Bordeaux, INRIA & CNRS
++**
++** This file is part of the Scotch software package for static mapping,
++** graph partitioning and sparse matrix ordering.
++**
++** This software is governed by the CeCILL-C license under French law
++** and abiding by the rules of distribution of free software. You can
++** use, modify and/or redistribute the software under the terms of the
++** CeCILL-C license as circulated by CEA, CNRS and INRIA at the following
++** URL: "http://www.cecill.info".
++** 
++** As a counterpart to the access to the source code and rights to copy,
++** modify and redistribute granted by the license, users are provided
++** only with a limited warranty and the software's author, the holder of
++** the economic rights, and the successive licensors have only limited
++** liability.
++** 
++** In this respect, the user's attention is drawn to the risks associated
++** with loading, using, modifying and/or developing or reproducing the
++** software by the user in light of its specific status of free software,
++** that may mean that it is complicated to manipulate, and that also
++** therefore means that it is reserved for developers and experienced
++** professionals having in-depth computer knowledge. Users are therefore
++** encouraged to load and test the software's suitability as regards
++** their requirements in conditions enabling the security of their
++** systems and/or data to be ensured and, more generally, to use and
++** operate it in the same conditions as regards security.
++** 
++** The fact that you are presently reading this means that you have had
++** knowledge of the CeCILL-C license and that you accept its terms.
++*/
++/************************************************************/
++/**                                                        **/
++/**   NAME       : parmetis.h                              **/
++/**                                                        **/
++/**   AUTHOR     : Francois PELLEGRINI                     **/
++/**                                                        **/
++/**   FUNCTION   : Compatibility declaration file for the  **/
++/**                MeTiS interface routines provided by    **/
++/**                the Scotch project.                     **/
++/**                                                        **/
++/**   DATES      : # Version 5.0  : from : 17 oct 2007     **/
++/**                                 to     18 oct 2007     **/
++/**                # Version 5.1  : from : 19 jun 2008     **/
++/**                                 to     30 jun 2010     **/
++/**                # Version 6.0  : from : 13 sep 2012     **/
++/**                                 to     13 sep 2012     **/
++/**                                                        **/
++/************************************************************/
++
++/*
++**  The defines and includes.
++*/
++
++#ifndef __parmetis_h__
++#define __parmetis_h__
++
++#include <mpi.h>                                  /* Since ParMeTiS does it, do it too */
++
++#endif /* __parmetis_h__ */
++
++#ifdef SCOTCH_METIS_PREFIX
++#define SCOTCH_METIS_PREFIXL        scotch_
++#define SCOTCH_METIS_PREFIXU        SCOTCH_
++#endif /* SCOTCH_METIS_PREFIX */
++
++#ifndef SCOTCH_METIS_PREFIXL
++#define SCOTCH_METIS_PREFIXL
++#endif /* SCOTCH_METIS_PREFIXL */
++
++#ifndef SCOTCH_METIS_PREFIXU
++#define SCOTCH_METIS_PREFIXU
++#endif /* SCOTCH_METIS_PREFIXU */
++
++#ifndef METISNAMEL
++#define METISNAMEL(s)               METISNAME2(METISNAME3(SCOTCH_METIS_PREFIXL),s)
++#define METISNAMEU(s)               METISNAME2(METISNAME3(SCOTCH_METIS_PREFIXU),s)
++#define METISNAME2(p,s)             METISNAME4(p,s)
++#define METISNAME3(s)               s
++#define METISNAME4(p,s)             p##s
++#endif /* METISNAMEL */
++
++/*
++**  The function prototypes.
++*/
++
++void                        METISNAMEU(ParMETIS_V3_NodeND) (const SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const, MPI_Comm * const);
++void                        METISNAMEU(ParMETIS_V3_PartGeomKway) (const SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const float * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const float * const, const float * const, const SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const, MPI_Comm * const);
++void                        METISNAMEU(ParMETIS_V3_PartKway) (const SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const SCOTCH_Num * const, const float * const, const float * const, const SCOTCH_Num * const, SCOTCH_Num * const, SCOTCH_Num * const, MPI_Comm * const);
