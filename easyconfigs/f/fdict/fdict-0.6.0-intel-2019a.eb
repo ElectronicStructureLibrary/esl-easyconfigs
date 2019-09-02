@@ -14,6 +14,7 @@ sources = ['v%(version)s.tar.gz']
 source_urls = ['https://github.com/zerothi/fdict/archive/']
 checksums = ['3138c3a3b78e9d96898619c4aba61437a2f0d498e70fa7d4e66716fd25408f04']
 
+buildopts = ' VENDOR=intel FPP="$FC -E -P -xc"'
 
 files_to_copy = [(['libfdict.a'], 'lib'), (['variable.mod', 'dictionary.mod'], 'include'), (['settings.bash'], 'bin')]
 
