@@ -1,0 +1,24 @@
+easyblock = 'ConfigureMake'
+
+name = 'wannier90-esl'
+version = '2.0.1.1'
+
+homepage = 'https://launchpad.net/wannier90'
+description = """Maximally-Localized Wannier Functions in Fortran."""
+
+toolchain = {'name': 'foss', 'version': '2019b'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = ['https://launchpad.net/wannier90/%(version_major_minor)s/%(version)s/+download/']
+checksums = ['64f44d4abc0a226eb102c2aef8e0d0282eecdebd2023e455fb0d752815c9595b']
+
+configopts = '--without-mpi CC="gcc" FC="gfortran" MPICC="" MPIFC="" LIBS="-lopenblas"'
+
+sanity_check_paths = {
+    'files': ['bin/wannier90.x'] +
+    ['include/w90_%s.mod' % item for item in ['io', 'kmesh', 'parameters', 'transport', 'wannierise']] +
+    ['lib/libwannier90.a'],
+    'dirs': ['share/doc/wannier90'],
+}
+
+moduleclass = 'chem'
